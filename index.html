@@ -16,114 +16,124 @@
 	<body>
 		<h1>Piano Project</h1>
 		<div class="piano-container">
-			<div class="piano">
+			<div id="piano" class="piano show-notes">
 				<div class="piano-octave" id="first-octave">
 					<div class="white-keys">
-						<div
-							class="piano-key piano-key__white"
-							id="note-c-1"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-d-1"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-e-1"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-f-1"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-g-1"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-a-1"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-b-1"
-						></div>
+						<div class="piano-key piano-key__white" id="note-c-1">
+							<h2>C</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-d-1">
+							<h2>D</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-e-1">
+							<h2>E</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-f-1">
+							<h2>F</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-g-1">
+							<h2>G</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-a-1">
+							<h2>A</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-b-1">
+							<h2>B</h2>
+						</div>
 					</div>
 					<div
 						class="piano-key piano-key__black black-1"
 						id="note-c-sharp-1"
-					></div>
+					>
+						<h4>C#</h4>
+					</div>
 					<div
 						class="piano-key piano-key__black black-2"
 						id="note-d-sharp-1"
-					></div>
+					>
+						<h4>D#</h4>
+					</div>
 					<div
 						class="piano-key piano-key__black black-3"
 						id="note-f-sharp-1"
-					></div>
+					>
+						<h4>F#</h4>
+					</div>
 					<div
 						class="piano-key piano-key__black black-4"
 						id="note-g-sharp-1"
-					></div>
+					>
+						<h4>G#</h4>
+					</div>
 					<div
 						class="piano-key piano-key__black black-5"
 						id="note-a-sharp-1"
-					></div>
+					>
+						<h4>A#</h4>
+					</div>
 				</div>
 				<div class="piano-octave" id="second-octave">
 					<div class="white-keys">
-						<div
-							class="piano-key piano-key__white"
-							id="note-c-2"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-d-2"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-e-2"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-f-2"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-g-2"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-a-2"
-						></div>
-						<div
-							class="piano-key piano-key__white"
-							id="note-b-2"
-						></div>
+						<div class="piano-key piano-key__white" id="note-c-2">
+							<h2>C</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-d-2">
+							<h2>D</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-e-2">
+							<h2>E</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-f-2">
+							<h2>F</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-g-2">
+							<h2>G</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-a-2">
+							<h2>A</h2>
+						</div>
+						<div class="piano-key piano-key__white" id="note-b-2">
+							<h2>B</h2>
+						</div>
 					</div>
 					<div
 						class="piano-key piano-key__black black-1"
 						id="note-c-sharp-2"
-					></div>
+					>
+						<h4>C#</h4>
+					</div>
 					<div
 						class="piano-key piano-key__black black-2"
 						id="note-d-sharp-2"
-					></div>
+					>
+						<h4>D#</h4>
+					</div>
 					<div
 						class="piano-key piano-key__black black-3"
 						id="note-f-sharp-2"
-					></div>
+					>
+						<h4>F#</h4>
+					</div>
 					<div
 						class="piano-key piano-key__black black-4"
 						id="note-g-sharp-2"
-					></div>
+					>
+						<h4>G#</h4>
+					</div>
 					<div
 						class="piano-key piano-key__black black-5"
 						id="note-a-sharp-2"
-					></div>
+					>
+						<h4>A#</h4>
+					</div>
 				</div>
 			</div>
 		</div>
 
+		<button onClick="toggleMarkings" class="btn" id="toggle-button">
+			<s>C#</s>
+		</button>
 		<script src="script.js"></script>
+		<script src="sandbox.js"></script>
 	</body>
 </html>
