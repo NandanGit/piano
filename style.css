@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Muli', sans-serif;
+	/* background-color: #252525; */
+	background-color: black;
+	color: #ccc;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+}
+
+.piano {
+	/* background-color: #4d4d4d; */
+	background-color: transparent;
+	height: 20rem;
+	width: 60rem;
+	display: flex;
+	/* border-radius: 1rem; */
+	border-radius: 0.25rem;
+}
+
+.piano-octave {
+	height: 100%;
+	width: 50%;
+	display: absolute;
+}
+.piano-octave .white-keys {
+	display: flex;
+	justify-content: space-around;
+	height: 100%;
+	width: 100%;
+}
+.piano-key__white {
+	height: 100%;
+	width: 14%;
+	background-color: #fff;
+	/* border-radius: 0 0 1rem 1rem; */
+	box-shadow: 0 0 10px 2px #4d4d4daa;
+	/* box-shadow: inset 0 0 10px 2px #4d4d4daa; */
+}
+
+.piano-key {
+	cursor: pointer;
+}
+
+.piano-key__white:hover {
+	/* background-color: currentColor; */
+	background-color: #ccc;
+	box-shadow: none;
+}
+
+.piano-key__black:hover {
+	background-color: #222;
+}
+
+.piano-key__black:active {
+	box-shadow: 0 0 3px 0px #000000db;
+}
+
+.piano-key__white:active {
+	/* background-color: currentColor; */
+	opacity: 0.95;
+	transform: scale(0.99);
+}
+
+#first-octave .piano-key__white:first-child {
+	/* border-radius: 0.25rem 0 1rem 1rem; */
+	border-radius: 0.25rem 0 0 0.25rem;
+}
+
+#second-octave .piano-key__white:last-child {
+	/* border-radius: 0 0.25rem 1rem 1rem; */
+	border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.piano-key__black {
+	background-color: #000;
+	height: 10rem;
+	width: 2rem;
+	position: relative;
+	transform: translateX(-50%);
+}
+
+.piano-key__black.black-1 {
+	top: -20rem;
+	left: 68.5px;
+}
+
+.piano-key__black.black-2 {
+	top: -30rem;
+	left: 137px;
+}
+
+.piano-key__black.black-3 {
+	top: -40rem;
+	left: 274px;
+}
+
+.piano-key__black.black-4 {
+	top: -50rem;
+	left: 342.5px;
+}
+
+.piano-key__black.black-5 {
+	top: -60rem;
+	left: 411px;
+}
