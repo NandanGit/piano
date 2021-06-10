@@ -257,7 +257,7 @@ secondOctaveSelectorElement.addEventListener('input', (event) => {
 		pianoState.currentOctaves[0] = newOctaveValue - 1;
 		firstOctaveSelectorElement.value = newOctaveValue - 1;
 		UI.updateOctaveView(1, newOctaveValue - 1);
-		UI.updateOctaveNumbersOnKeys(1, newOctaveValue + 1);
+		UI.updateOctaveNumbersOnKeys(1, newOctaveValue - 1);
 	}
 
 	// update the UI
