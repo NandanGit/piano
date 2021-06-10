@@ -20,25 +20,53 @@
 				<div class="piano-octave" id="first-octave">
 					<div class="white-keys">
 						<div class="piano-key piano-key__white" id="note-c-1">
-							<h2>C</h2>
+							<h2>
+								C<span class="octave-number octave-1-number"
+									>4</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-d-1">
-							<h2>D</h2>
+							<h2>
+								D<span class="octave-number octave-1-number"
+									>4</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-e-1">
-							<h2>E</h2>
+							<h2>
+								E<span class="octave-number octave-1-number"
+									>4</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-f-1">
-							<h2>F</h2>
+							<h2>
+								F<span class="octave-number octave-1-number"
+									>4</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-g-1">
-							<h2>G</h2>
+							<h2>
+								G<span class="octave-number octave-1-number"
+									>4</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-a-1">
-							<h2>A</h2>
+							<h2>
+								A<span class="octave-number octave-1-number"
+									>4</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-b-1">
-							<h2>B</h2>
+							<h2>
+								B<span class="octave-number octave-1-number"
+									>4</span
+								>
+							</h2>
 						</div>
 					</div>
 					<div
@@ -75,25 +103,53 @@
 				<div class="piano-octave" id="second-octave">
 					<div class="white-keys">
 						<div class="piano-key piano-key__white" id="note-c-2">
-							<h2>C</h2>
+							<h2>
+								C<span class="octave-number octave-2-number"
+									>5</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-d-2">
-							<h2>D</h2>
+							<h2>
+								D<span class="octave-number octave-2-number"
+									>5</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-e-2">
-							<h2>E</h2>
+							<h2>
+								E<span class="octave-number octave-2-number"
+									>5</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-f-2">
-							<h2>F</h2>
+							<h2>
+								F<span class="octave-number octave-2-number"
+									>5</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-g-2">
-							<h2>G</h2>
+							<h2>
+								G<span class="octave-number octave-2-number"
+									>5</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-a-2">
-							<h2>A</h2>
+							<h2>
+								A<span class="octave-number octave-2-number"
+									>5</span
+								>
+							</h2>
 						</div>
 						<div class="piano-key piano-key__white" id="note-b-2">
-							<h2>B</h2>
+							<h2>
+								B<span class="octave-number octave-2-number"
+									>5</span
+								>
+							</h2>
 						</div>
 					</div>
 					<div
@@ -128,12 +184,60 @@
 					</div>
 				</div>
 			</div>
+			<div class="piano-controls">
+				<div class="input-control">
+					<label>Octave <span id="octave-1-view">4</span></label>
+					<input
+						type="range"
+						min="0"
+						max="7"
+						step="1"
+						value="4"
+						id="octave-1-selector"
+					/>
+				</div>
+				<div class="input-control">
+					<label>
+						Damping
+						<!-- <span id="damp-duration-view">2000</span> -->
+						<input
+							class="display-purpose-input"
+							type="number"
+							min="10"
+							max="9990"
+							step="10"
+							value="1000"
+							id="damp-duration-view"
+						/>ms
+					</label>
+					<input
+						min="10"
+						max="9990"
+						step="10"
+						value="1000"
+						type="range"
+						id="damping-time"
+					/>
+				</div>
+
+				<div class="input-control">
+					<label>Octave <span id="octave-2-view">5</span></label>
+					<input
+						type="range"
+						min="1"
+						max="8"
+						step="1"
+						value="5"
+						id="octave-2-selector"
+					/>
+				</div>
+			</div>
 		</div>
 
-		<button onClick="toggleMarkings" class="btn" id="toggle-button">
+		<button class="btn" id="toggle-button">
 			<s>C#</s>
 		</button>
 		<script src="script.js"></script>
-		<script src="sandbox.js"></script>
+		<!-- <script src="sandbox.js"></script> -->
 	</body>
 </html>

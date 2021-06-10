@@ -18,6 +18,60 @@ body {
 	margin: 0;
 }
 
+.piano-controls {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	margin: 1rem auto;
+}
+
+input[type='range'] {
+	cursor: pointer;
+}
+
+.input-control {
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.input-control label {
+	opacity: 0;
+	transition: all 0.5s ease;
+}
+
+.input-control:hover label {
+	opacity: 1;
+}
+
+.input-control input[type='range'] {
+	width: 100%;
+}
+
+.display-purpose-input {
+	padding: 0;
+	background: transparent;
+	color: #ccc;
+	border: none;
+	/* min-width: 10px; */
+	width: 2rem;
+}
+
+.display-purpose-input:active,
+.display-purpose-input:focus {
+	outline: none;
+}
+
+.display-purpose-input::-webkit-outer-spin-button,
+.display-purpose-input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
 .piano {
 	/* background-color: #4d4d4d; */
 	background-color: transparent;
@@ -56,6 +110,10 @@ body {
 .piano-key__white h2 {
 	opacity: 0;
 	transition: all 0.5s ease;
+}
+
+.piano .octave-number {
+	font-size: small;
 }
 
 .piano.show-notes .piano-key__white h2 {
