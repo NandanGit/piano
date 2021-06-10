@@ -1,8 +1,8 @@
-# Piano
+# Piano App
 
-Piano app which plays notes using the keyboard keys (16hz to 7600hz)
+A Piano app which plays notes using the keyboard keys (16hz to 7600hz)
 
-[Try the piano](https://NandanGit.github.io/piano)
+# [Try the Piano yourself](https://NandanGit.github.io/piano)
 
 ## How to use
 
@@ -45,19 +45,20 @@ Piano app which plays notes using the keyboard keys (16hz to 7600hz)
 | J             | A#               |
 | M             | B                |
 
-**Note** : _You can always switch to capital letter by holding shift key_
-_Example: to press Capital K use **shift+k** instead of **capslock** and **k**_
+_**Note** : You can always switch to capital letter by holding shift key_
+
+_for Example: to press Capital K use **shift+k** instead of **capslock** and **k**_
 
 ## Features
 
 ### Present features
 
--   [ ] Playing notes through keyboard
--   [ ] Toggling the Markings on the Keys
--   [ ] Changing the damping time of the note
--   [ ] Selecting the octave (both left and right)
+-   [x] Playing notes through keyboard
+-   [x] Toggling the Markings on the Keys
+-   [x] Changing the damping time of the note
+-   [x] Selecting the octave (both left and right)
 
 ### Upcoming features
 
--   [x] Option to unsynchronize Octaves so that they don't need to be adjacent
--   [x] You may expect to play chords in the future version without any shrill sound
+-   [ ] Option to unsynchronize Octaves so that they don't need to be adjacent
+-   [ ] You may expect to play chords in the future version without any shrill sound
