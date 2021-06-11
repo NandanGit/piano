@@ -244,3 +244,21 @@ input[type='range'] {
 	padding: 0.5rem;
 	margin-top: 0;
 }
+
+.wave-form-select-container {
+	margin-top: 1rem;
+}
+
+.wave-form-select-container select {
+	padding: 0.2rem;
+	opacity: 0;
+	transition: all 0.5s ease;
+}
+
+.wave-form-select-container select.show {
+	opacity: 1;
+}
+
+.wave-form-select-container select:focus {
+	outline: none;
+}

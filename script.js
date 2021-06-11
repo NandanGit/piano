@@ -17,9 +17,11 @@ const firstOctaveKeysViewElements =
 	document.querySelectorAll('.octave-1-number');
 const secondOctaveKeysViewElements =
 	document.querySelectorAll('.octave-2-number');
+const waveSelectorElement = document.getElementById('wave-forms');
 // console.log(firstOctaveKeysViewElements, secondOctaveKeysViewElements);
 
 // States and Maps
+// const l = 1
 
 //////////////////////////// UIFunctions ////////////////////////////
 const UI = (function () {
@@ -33,6 +35,9 @@ const UI = (function () {
 			} else {
 				toggleButtonElement.innerHTML = 'C#';
 			}
+		},
+		toggleWaveSelector() {
+			waveSelectorElement.classList.toggle('show');
 		},
 		pressNoteOnScreen(note, duration) {
 			// duration should be in milliseconds
@@ -109,11 +114,31 @@ const pianoState = (function () {
 	return {
 		currentOctaves: [4, 5],
 		isOctavesInSync: true,
+		waveType: 'sine',
+		preferablePastNKeys: [
+			'note-a-1',
+			'note-a-1',
+			'note-b-1',
+			'note-a-1',
+			'note-d-2',
+			'note-c-2',
+		],
+		pastNKeys: [],
 		activeNotes: [],
 		keyPressDuration: 250, //ms
 		keySoundDampDuration: 1000, //ms
 		changeKeySoundDampDuration(newDampDuration) {
 			this.keySoundDampDuration = newDampDuration;
+		},
+		updatePastNKeys(noteID) {
+			if (this.pastNKeys.length === this.preferablePastNKeys.length) {
+				this.pastNKeys.shift();
+			}
+			this.pastNKeys.push(noteID);
+			return (
+				JSON.stringify(this.pastNKeys) ===
+				JSON.stringify(this.preferablePastNKeys)
+			);
 		},
 	};
 })();
@@ -170,9 +195,13 @@ const keyMap = {
 const Logic = (function () {
 	return {
 		playSound(noteID) {
+			if (pianoState.updatePastNKeys(noteID)) {
+				UI.toggleWaveSelector();
+			}
 			const octaveNumber = +noteID[noteID.length - 1];
 			// console.log(octaveNumber);
 			const o = context.createOscillator();
+			o.type = pianoState.waveType;
 			const g = context.createGain();
 			o.connect(g);
 			g.connect(context.destination);
@@ -207,6 +236,7 @@ document.addEventListener('keypress', (event) => {
 	UI.pressNoteOnScreen(noteID, pianoState.keyPressDuration);
 	// console.log(frequencyMap[noteID]);
 	// Oscillator
+
 	Logic.playSound(noteID);
 });
 
@@ -263,4 +293,13 @@ secondOctaveSelectorElement.addEventListener('input', (event) => {
 	// update the UI
 	UI.updateOctaveView(2, newOctaveValue);
 	UI.updateOctaveNumbersOnKeys(2, newOctaveValue);
+});
+
+// To change the wave form of piano
+waveSelectorElement.addEventListener('change', (event) => {
+	const waveType = event.target.value.trim().toLowerCase();
+	if (!['sine', 'triangle', 'square', 'sawtooth'].includes(waveType)) {
+		return console.log('Not gonna happen');
+	}
+	pianoState.waveType = waveType;
 });

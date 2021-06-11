@@ -57,6 +57,7 @@ _for Example: to press Capital K use **shift+k** instead of **capslock** and **k
 -   [x] Toggling the Markings on the Keys
 -   [x] Changing the damping time of the note
 -   [x] Selecting the octave (both left and right)
+-   [x] Selecting the type of wave (sine, triangle, square, sawtooth) but it is an easter egg, you need to play the first line of happy birthday to choose another waveform
 
 ### Upcoming features
 
