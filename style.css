@@ -262,3 +262,8 @@ input[type='range'] {
 .wave-form-select-container select:focus {
 	outline: none;
 }
+
+.hide {
+	opacity: 0;
+	transition: all 0.5s ease;
+}

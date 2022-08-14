@@ -3,6 +3,8 @@
  */
 
 // DOM Elements
+const pianoHeading = document.getElementById('piano-heading');
+const pianoControls = document.getElementById('piano-controls');
 const pianoElement = document.getElementById('piano');
 const toggleButtonElement = document.getElementById('toggle-button');
 const dampingTimeRangeElement = document.getElementById('damping-time');
@@ -23,7 +25,7 @@ const waveSelectorElement = document.getElementById('wave-forms');
 // States and Maps
 // const l = 1
 
-//////////////////////////// UIFunctions ////////////////////////////
+//////////////////////////////////////////////// UIFunctions ////////////////////////////////////////////////
 const UI = (function () {
 	return {
 		toggleMarkings() {
@@ -85,28 +87,20 @@ const UI = (function () {
 	};
 })();
 
-//////////////////// State Management and Logic /////////////////////
+//////////////////////////////////////// State Management and Logic /////////////////////////////////////////
 const notesToFrequencyMap = {
-	// Note --> Frequencys (all octaves)
+	// Note --> Frequencies (all octaves)
 	'note-c-': [16.35, 32.7, 65.41, 130.8, 261.6, 523.3, 1047, 2093, 4186],
-	'note-c-sharp-': [
-		17.32, 34.65, 69.3, 138.6, 277.2, 554.4, 1109, 2217, 4435,
-	],
+	'note-c-sharp-': [17.32, 34.65, 69.3, 138.6, 277.2, 554.4, 1109, 2217, 4435],
 	'note-d-': [18.35, 36.71, 73.42, 146.8, 293.7, 587.3, 1175, 2349, 4699],
-	'note-d-sharp-': [
-		19.45, 38.89, 77.78, 155.6, 311.1, 622.3, 1245, 2489, 4978,
-	],
+	'note-d-sharp-': [19.45, 38.89, 77.78, 155.6, 311.1, 622.3, 1245, 2489, 4978],
 	'note-e-': [20.6, 41.2, 82.41, 164.8, 329.6, 659.3, 1319, 2637, 5274],
 	'note-f-': [21.83, 43.65, 87.31, 174.6, 349.2, 698.5, 1397, 2794, 5588],
 	'note-f-sharp-': [23.12, 46.25, 92.5, 185, 370, 740, 1480, 2960, 5920],
 	'note-g-': [24.5, 49, 98, 196, 392, 784, 1568, 3136, 6272],
-	'note-g-sharp-': [
-		25.96, 51.91, 103.8, 207.7, 415.3, 830.6, 1661, 3322, 6645,
-	],
+	'note-g-sharp-': [25.96, 51.91, 103.8, 207.7, 415.3, 830.6, 1661, 3322, 6645],
 	'note-a-': [27.5, 55, 110, 220, 440, 880, 1760, 3520, 7040],
-	'note-a-sharp-': [
-		29.14, 58.27, 116.5, 233.1, 466.2, 932.3, 1865, 3729, 7459,
-	],
+	'note-a-sharp-': [29.14, 58.27, 116.5, 233.1, 466.2, 932.3, 1865, 3729, 7459],
 	'note-b-': [30.87, 61.74, 123.5, 246.9, 493.9, 987.8, 1976, 3951, 7902],
 };
 const context = new AudioContext();
@@ -126,6 +120,7 @@ const pianoState = (function () {
 		pastNKeys: [],
 		activeNotes: [],
 		keyPressDuration: 250, //ms
+		bringDownDuration: 50,
 		keySoundDampDuration: 1000, //ms
 		changeKeySoundDampDuration(newDampDuration) {
 			this.keySoundDampDuration = newDampDuration;
@@ -218,7 +213,7 @@ const Logic = (function () {
 	};
 })();
 
-////////////////////////////// Events ///////////////////////////////
+////////////////////////////////////////////////// Events ///////////////////////////////////////////////////
 toggleButtonElement.addEventListener('click', () => {
 	toggleButtonElement.disabled = true;
 	setTimeout(() => {
@@ -303,3 +298,31 @@ waveSelectorElement.addEventListener('change', (event) => {
 	}
 	pianoState.waveType = waveType;
 });
+
+var inactivityTime = () => {
+	var time;
+	window.onload = resetTimer;
+	// DOM Events
+	document.onmousemove = resetTimer;
+	//document.onkeydown = resetTimer;
+
+	function hideControls() {
+		console.log('Inactivity');
+		pianoControls.classList.add('hide');
+		pianoHeading.classList.add('hide');
+	}
+
+	function unHideControls() {
+		console.log('Activity');
+		pianoControls.classList.remove('hide');
+		pianoHeading.classList.remove('hide');
+	}
+
+	function resetTimer() {
+		clearTimeout(time);
+		unHideControls();
+		time = setTimeout(hideControls, 3000);
+		// 1000 milliseconds = 1 second
+	}
+};
+window.onload = inactivityTime;
